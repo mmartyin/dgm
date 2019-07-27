@@ -1,0 +1,53 @@
+<div class="container">
+   
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4">
+            
+    <form  [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+      <div class="form-group">
+            <!-- <label for="username">Username</label> -->
+            
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="username" 
+                    name="username"
+                    formControlName="username"
+                    placeholder="Username"
+                >
+                
+            </div>
+    
+      </div>
+      <span
+      *ngIf = "!loginForm.get('username').valid && loginForm.get('username').touched"
+       class="help-block"><span class="text-danger">Incorrect Username</span></span>
+      
+      
+      <div class="form-group">
+            <!-- <label for="pwd">Password</label> -->
+            
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input 
+                    type="password" 
+                    class="form-control"
+                    id="password" 
+                    name="password"
+                    formControlName="password"
+                    placeholder="Password"
+                >
+            </div>
+            
+      </div>
+      <span
+      *ngIf = "!loginForm.get('password').valid && loginForm.get('password').touched"
+       class="help-block"><span class="text-danger">Incorrect Password</span></span>
+  
+      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+     
+    </form>
+    </div>
+  
+</div>
